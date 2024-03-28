@@ -1,0 +1,18 @@
+server:
+  port: 9093
+  
+  
+  
+spring:
+  application:
+    name: Config-Server
+  profiles:
+    active:
+    - native
+    
+  cloud:
+    config:
+      server:
+        native:
+          search-locations:
+          - file:///C:/Users/harshraj01/OneDrive - Nagarro/Harsh_Raj_Batch 01-Mar-23/Microservices Assignment

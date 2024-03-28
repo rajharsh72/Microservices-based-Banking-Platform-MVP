@@ -1,0 +1,29 @@
+server:
+  port: 9092
+  
+spring:
+  application:
+    name: API-Gateway
+    
+    
+  config:
+         import: "optional:configserver: http://localhost:9093" 
+  
+    
+  cloud:
+    gateway:
+      mvc:
+        routes:
+        - id: Customer-Service
+          uri:
+            lb://Customer-Service
+          predicates:
+          - Path=/api/customer/**
+        
+        - id: Account-Service
+          uri:
+            lb://Account-Service
+          predicates:
+          - Path=/api/account/**
+          
+    
